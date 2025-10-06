@@ -8,17 +8,19 @@ public class Student
 
     public Student(String name, String email, String course)
     {
+        //Constructor to add info to object
         this.studentName = name;
         this.studentEmail = email;
         this.studentCourse = course;
     }
 
-    //TODO Add getters and setters
-
+    //Getter for student info
     public void getInfo()
     {
         System.out.println("Student info, Name: " + studentName + " Email: " + studentEmail + " Course: " + studentCourse);
     }
+
+
 
 
 }

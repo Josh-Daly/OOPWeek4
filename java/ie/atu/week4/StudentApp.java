@@ -20,7 +20,8 @@ public class StudentApp {
         scan1.nextLine(); //Fixes nextInt issue of skipping next scanner method call
 
         //Student details section
-        while(0 < count)
+        int i = 0; //Counter to compare to student number
+        while(i < count)
         {
             System.out.println("Please enter your name: ");
             String nameTemp = scan1.nextLine();
@@ -29,15 +30,24 @@ public class StudentApp {
             System.out.println("Please enter your course: ");
             String courseTemp = scan1.nextLine();
 
+            //Creates a student object with a constructor, applying the temporary strings
             Student studentTemp = new Student(nameTemp,emailTemp,courseTemp);
 
-            studentTemp.getInfo();
-            System.out.println("Name: " + nameTemp + ", Email: " + emailTemp + ", Course: " + courseTemp);
+            //Test line, gets the entered info
+            //studentTemp.getInfo();
 
-            count--;
+            //System.out.println("Name: " + nameTemp + ", Email: " + emailTemp + ", Course: " + courseTemp);
+            students.add(studentTemp);
+
+            i++;
         }
 
-
+        //Print info on all students in array list
+        System.out.println("Student List (" + count + " students): ");
+        for (Student s : students)
+        {
+            s.getInfo(); //Runs the getter for each student, displaying info
+        }
     }
 }
 
