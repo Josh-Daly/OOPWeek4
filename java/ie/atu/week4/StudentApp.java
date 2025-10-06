@@ -9,10 +9,12 @@ import java.util.Scanner;
 public class StudentApp {
     public static void main(String[] args) {
 
-        ArrayList<String> students = new ArrayList<>(); //Creates the arrayList 'students'
+        ArrayList<Student> students = new ArrayList<>(); //Creates the arrayList 'students'
         Scanner scan1 = new Scanner(System.in);
 
-        System.out.println("Please enter the number of students: ");
+
+
+        System.out.println("How many students do you want to enter details for? ");
         int count = scan1.nextInt(); //Saves number of students as an int for later
 
         scan1.nextLine(); //Fixes nextInt issue of skipping next scanner method call
@@ -20,14 +22,18 @@ public class StudentApp {
         //Student details section
         while(0 < count)
         {
-            System.out.print("Please enter your name: ");
+            System.out.println("Please enter your name: ");
             String nameTemp = scan1.nextLine();
-            System.out.print("Please enter your email: ");
+            System.out.println("Please enter your email: ");
             String emailTemp = scan1.nextLine();
-            System.out.print("Please enter your course: ");
+            System.out.println("Please enter your course: ");
             String courseTemp = scan1.nextLine();
 
+            Student studentTemp = new Student(nameTemp,emailTemp,courseTemp);
+
+            studentTemp.getInfo();
             System.out.println("Name: " + nameTemp + ", Email: " + emailTemp + ", Course: " + courseTemp);
+
             count--;
         }
 
