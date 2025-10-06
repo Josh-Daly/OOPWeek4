@@ -9,29 +9,45 @@ import java.util.Scanner;
 public class StudentApp {
     public static void main(String[] args) {
 
-        ArrayList<String> students = new ArrayList<>(); //Creates the arrayList 'students'
+        ArrayList<Student> students = new ArrayList<>(); //Creates the arrayList 'students'
         Scanner scan1 = new Scanner(System.in);
 
-        System.out.println("Please enter the number of students: ");
+
+
+        System.out.println("How many students do you want to enter details for? ");
         int count = scan1.nextInt(); //Saves number of students as an int for later
 
         scan1.nextLine(); //Fixes nextInt issue of skipping next scanner method call
 
         //Student details section
-        while(0 < count)
+        int i = 0; //Counter to compare to student number
+        while(i < count)
         {
-            System.out.print("Please enter your name: ");
+            System.out.println("Please enter your name: ");
             String nameTemp = scan1.nextLine();
-            System.out.print("Please enter your email: ");
+            System.out.println("Please enter your email: ");
             String emailTemp = scan1.nextLine();
-            System.out.print("Please enter your course: ");
+            System.out.println("Please enter your course: ");
             String courseTemp = scan1.nextLine();
 
-            System.out.println("Name: " + nameTemp + ", Email: " + emailTemp + ", Course: " + courseTemp);
-            count--;
+            //Creates a student object with a constructor, applying the temporary strings
+            Student studentTemp = new Student(nameTemp,emailTemp,courseTemp);
+
+            //Test line, gets the entered info
+            //studentTemp.getInfo();
+
+            //System.out.println("Name: " + nameTemp + ", Email: " + emailTemp + ", Course: " + courseTemp);
+            students.add(studentTemp);
+
+            i++;
         }
 
-
+        //Print info on all students in array list
+        System.out.println("Student List (" + count + " students): ");
+        for (Student s : students)
+        {
+            s.getInfo(); //Runs the getter for each student, displaying info
+        }
     }
 }
 
