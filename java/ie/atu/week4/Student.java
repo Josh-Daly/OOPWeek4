@@ -20,7 +20,8 @@ public class Student
         System.out.println("Student info, Name: " + studentName + " Email: " + studentEmail + " Course: " + studentCourse);
     }
 
-
-
-
+    public String getEmail()
+    {
+        return studentEmail;
+    }
 }

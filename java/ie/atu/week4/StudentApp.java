@@ -27,6 +27,21 @@ public class StudentApp {
             String nameTemp = scan1.nextLine();
             System.out.println("Please enter your email: ");
             String emailTemp = scan1.nextLine();
+
+            //Section to enforce unique emails
+            if(i>0) //Only executes after first student
+            {
+                for(Student studs : students)
+                {
+                    String emailChecker = studs.getEmail(); //Creates a string to save student email for comparison
+                    while(emailTemp.equals(emailChecker)) //While loop to keep them trying until a unique one is made
+                    {
+                        System.out.println("Email already taken, please enter a unique email: ");
+                        emailTemp = scan1.nextLine();
+                    }
+                }
+            }
+
             System.out.println("Please enter your course: ");
             String courseTemp = scan1.nextLine();
 
